@@ -23,4 +23,20 @@ ovary.obs['suspension_type'] = ovary.obs['suspension_type'].astype('category')
 ovary.obs['Celltype'] = ovary.obs['Celltype'].replace({'Macrophage': 'M/B cells'})
 ovary.obs['cell_type_ontology_term_id'] = ovary.obs['Celltype']
 ovary.obs['cell_type_ontology_term_id'] = ovary.obs['cell_type_ontology_term_id'].replace({'Endothelial cells': 'CL:0000115', 'Theca cells': 'CL:0000503','Epithelial cells': 'CL:0000066', 'Oocytes': 'CL:0000023','Stromal cells': 'CL:0000499', 'Granulosa cells (Amh-high)': 'CL:0000501','Granulosa cells (Inhbb-high)': 'CL:0000501','Granulosa cells (Nppc-high)': 'CL:0000501','Luteal cells': 'CL:0000175','NK/T cells': 'CL:0000084','M/B cells': 'CL:0000235'})
-ovary.obs['cell_type_ontology_term_id'] = ovary.obs['Celltype']
+ovary.obs['donor_id'] = ovary.obs['orig.ident']
+ovary.obs['group']=ovary.obs['group'].replace({'Y': 'Y_r','O': 'O_a'})
+ovary.obs['age_num'] = ovary.obs['group']
+ovary.obs['age_num'] = ovary.obs['age_num'].replace({'Y_r': '4.5m','M_r': '10.5m','M_ir': '10.5m','O_a': '15.5m'})
+ovary.obs['estrous_cycle'] = ovary.obs['group']
+ovary.obs['estrous_cycle'] = ovary.obs['estrous_cycle'].replace({'Y_r': 'Regular','M_r': 'Regular','M_ir': 'Irregular','O_a': 'Acyclic'})
+
+with open ("/home/jiping/h5ad/gene_id.csv",'r') as f:       gene_id = f.read().splitlines()
+ovary.var.index=gene_id
+
+ovary.uns['title']="Transcriptomic signatures of mouse ovarian aging and estropausal transition at single-cell resolution"
+del ovary.obs['UMAP_1']
+del ovary.obs['UMAP_2']
+del ovary.obs['batch']
+del ovary.obs['tissue_type']
+del ovary.obs['barcode']
+ovary.write_h5ad('/home/jiping/h5ad/CZI_mouse_ovary_noRaw.h5ad')
