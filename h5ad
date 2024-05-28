@@ -29,6 +29,8 @@ ovary.obs['age_num'] = ovary.obs['group']
 ovary.obs['age_num'] = ovary.obs['age_num'].replace({'Y_r': '4.5m','M_r': '10.5m','M_ir': '10.5m','O_a': '15.5m'})
 ovary.obs['estrous_cycle'] = ovary.obs['group']
 ovary.obs['estrous_cycle'] = ovary.obs['estrous_cycle'].replace({'Y_r': 'Regular','M_r': 'Regular','M_ir': 'Irregular','O_a': 'Acyclic'})
+ovary.obs['development_stage_ontology_term_id'] = ovary.obs['age_num']
+ovary.obs['development_stage_ontology_term_id']=ovary.obs['development_stage_ontology_term_id'].replace({'4.5m': 'MmusDv:0000064','10.5m': 'MmusDv:0000081','15.5m': 'MmusDv:0000086'})
 
 with open ("/home/jiping/h5ad/gene_id.csv",'r') as f:       gene_id = f.read().splitlines()
 ovary.var.index=gene_id
@@ -39,4 +41,7 @@ del ovary.obs['UMAP_2']
 del ovary.obs['batch']
 del ovary.obs['tissue_type']
 del ovary.obs['barcode']
+
+ovary.raw=ovary
+print(ovary.X.raw[:5, :])
 ovary.write_h5ad('/home/jiping/h5ad/CZI_mouse_ovary_noRaw.h5ad')
