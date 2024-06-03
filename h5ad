@@ -45,3 +45,16 @@ del ovary.obs['barcode']
 ovary.raw=ovary
 print(ovary.X.raw[:5, :])
 ovary.write_h5ad('/home/jiping/h5ad/CZI_mouse_ovary_noRaw.h5ad')
+
+
+###revise
+indices = ovary.obs[ovary.obs["donor_id"] == "M_ir_4"].index
+ovary.obs.loc[indices, "age_num"] = "10.5m"
+ovary.obs.loc[indices, "estrous_cycle"] = "Irregular"
+ovary.obs.loc[indices, "group"] = "M_ir"
+ovary.obs.loc[indices, "development_stage_ontology_term_id"] = "MmusDv:0000081"
+ovary.obs.to_csv("/home/jiping/h5ad/ovary.obs_metadata.csv")
+ovary.obs['cell_type_ontology_term_id'] = ovary.obs['cell_type_ontology_term_id'].replace({'CL:0000084': 'CL:0000814','CL:0000235': 'CL:0000842'})
+
+
+ovary.write_h5ad('/home/jiping/h5ad/CZI_mouse_ovary_aging_and_estropausal_transition.h5ad')
