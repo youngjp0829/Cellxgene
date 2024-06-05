@@ -1,0 +1,5 @@
+import scanpy as sc
+
+# Read 10x Genomics data
+Yr1 = sc.read_10x_mtx('/home/jy3062/mouse_ovary_aging/Y-r-1', var_names='gene_ids', make_unique=True)
+Yr2 = sc.read_10x_mtx('/home/jy3062/mouse_ovary_aging/Y-r-1', var_names='gene_ids', make_unique=True)
