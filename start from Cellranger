@@ -150,7 +150,8 @@ ovary_filtered = ovary[np.isin(ovary.obs.index,CellID["CellID"])]
 obs_index_df = pd.DataFrame(ovary_filtered.obs.index)
 obs_index_df.to_csv('C:/Users/Jiping/Documents/10x/ovary_filtered_obs_index.csv', index=False, header=False)
 ####manually check with metadata barcode column
-metadata=pd.read_csv("C:/Users/Jiping/Documents/10x/metadata.csv")
+metadata=pd.read_csv("C:/Users/Jiping/Documents/10x/metadata.csv",index_col=None)
 ovary_filtered.obs=metadata
-age = ovary_filtered.obs['age']
+
+ovary_filtered.obs.index=ovary_filtered.obs["barcode"]
 ovary_filtered.obs["age"] = metadata[]
