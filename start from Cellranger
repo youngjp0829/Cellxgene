@@ -138,4 +138,19 @@ Oa5.obs['age_num']='15.5m'
 Oa5.obs['age']='O'
 
 ovary = Yr1.concatenate(Yr2, Yr3, Yr4, Yr5, Mr1, Mr2, Mr3, Mir1, Mir2, Mir3, Mir4, Oa1, Oa2, Oa3, Oa4, Oa5, index_unique=None)
-11
+ovary
+
+import pandas as pd
+CellID=pd.read_csv("C:/Users/Jiping/Documents/10x/cellID.csv")
+print(CellID.head())
+
+import numpy as np
+ovary_filtered = ovary[np.isin(ovary.obs.index,CellID["CellID"])]
+
+obs_index_df = pd.DataFrame(ovary_filtered.obs.index)
+obs_index_df.to_csv('C:/Users/Jiping/Documents/10x/ovary_filtered_obs_index.csv', index=False, header=False)
+####manually check with metadata barcode column
+metadata=pd.read_csv("C:/Users/Jiping/Documents/10x/metadata.csv")
+ovary_filtered.obs=metadata
+age = ovary_filtered.obs['age']
+ovary_filtered.obs["age"] = metadata[]
