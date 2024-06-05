@@ -1,7 +1,7 @@
 import scanpy as sc
 
 # Read 10x Genomics data
-Yr1 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/Y-r-1', var_names='gene_ids', make_unique=False)
+Yr1 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/Y-r-1', var_names='gene_ids', make_unique=False)
 barcodes = ['Y_r_1_' + bc[:-2] for bc in Yr1.obs.index.tolist()]
 Yr1.obs.index = barcodes
 Yr1.obs["estrous_cycle"]='Regular'
@@ -9,7 +9,7 @@ Yr1.obs['group']='Y_r'
 Yr1.obs['age_num']='4.5m'
 Yr1.obs['age']='Y'
 
-Yr2 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/Y-r-2', var_names='gene_ids', make_unique=False)
+Yr2 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/Y-r-2', var_names='gene_ids', make_unique=False)
 barcodes = ['Y_r_2_' + bc[:-2] for bc in Yr2.obs.index.tolist()]
 Yr2.obs.index = barcodes
 Yr2.obs["estrous_cycle"]='Regular'
@@ -17,7 +17,7 @@ Yr2.obs['group']='Y_r'
 Yr2.obs['age_num']='4.5m'
 Yr2.obs['age']='Y'
 
-Yr3 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/Y-r-3', var_names='gene_ids', make_unique=False)
+Yr3 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/Y-r-3', var_names='gene_ids', make_unique=False)
 barcodes = ['Y_r_3_' + bc[:-2] for bc in Yr3.obs.index.tolist()]
 Yr3.obs.index = barcodes
 Yr3.obs["estrous_cycle"]='Regular'
@@ -25,7 +25,7 @@ Yr3.obs['group']='Y_r'
 Yr3.obs['age_num']='4.5m'
 Yr3.obs['age']='Y'
 
-Yr4 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/Y-r-4', var_names='gene_ids', make_unique=False)
+Yr4 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/Y-r-4', var_names='gene_ids', make_unique=False)
 barcodes = ['Y_r_4_' + bc[:-2] for bc in Yr4.obs.index.tolist()]
 Yr4.obs.index = barcodes
 Yr4.obs["estrous_cycle"]='Regular'
@@ -33,7 +33,7 @@ Yr4.obs['group']='Y_r'
 Yr4.obs['age_num']='4.5m'
 Yr4.obs['age']='Y'
 
-Yr5 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/Y-r-5', var_names='gene_ids', make_unique=False)
+Yr5 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/Y-r-5', var_names='gene_ids', make_unique=False)
 barcodes = ['Y_r_5_' + bc[:-2] for bc in Yr5.obs.index.tolist()]
 Yr5.obs.index = barcodes
 Yr5.obs["estrous_cycle"]='Regular'
@@ -41,7 +41,7 @@ Yr5.obs['group']='Y_r'
 Yr5.obs['age_num']='4.5m'
 Yr5.obs['age']='Y'
 
-Mr1 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/M-r-1', var_names='gene_ids', make_unique=False)
+Mr1 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/M-r-1', var_names='gene_ids', make_unique=False)
 barcodes = ['M_r_1_' + bc[:-2] for bc in Mr1.obs.index.tolist()]
 Mr1.obs.index = barcodes
 Mr1.obs["estrous_cycle"]='Regular'
@@ -49,7 +49,7 @@ Mr1.obs['group']='M_r'
 Mr1.obs['age_num']='10.5m'
 Mr1.obs['age']='M'
 
-Mr2 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/M-r-2', var_names='gene_ids', make_unique=False)
+Mr2 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/M-r-2', var_names='gene_ids', make_unique=False)
 barcodes = ['M_r_2_' + bc[:-2] for bc in Mr2.obs.index.tolist()]
 Mr2.obs.index = barcodes
 Mr2.obs["estrous_cycle"]='Regular'
@@ -57,7 +57,7 @@ Mr2.obs['group']='M_r'
 Mr2.obs['age_num']='10.5m'
 Mr2.obs['age']='M'
 
-Mr3 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/M-r-3', var_names='gene_ids', make_unique=False)
+Mr3 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/M-r-3', var_names='gene_ids', make_unique=False)
 barcodes = ['M_r_3_' + bc[:-2] for bc in Mr3.obs.index.tolist()]
 Mr3.obs.index = barcodes
 Mr3.obs["estrous_cycle"]='Regular'
@@ -65,7 +65,7 @@ Mr3.obs['group']='M_r'
 Mr3.obs['age_num']='10.5m'
 Mr3.obs['age']='M'
 
-Mir1 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/M-ir-1', var_names='gene_ids', make_unique=False)
+Mir1 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/M-ir-1', var_names='gene_ids', make_unique=False)
 barcodes = ['M_ir_1_' + bc[:-2] for bc in Mir1.obs.index.tolist()]
 Mir1.obs.index = barcodes
 Mir1.obs["estrous_cycle"]='Irregular'
@@ -73,7 +73,7 @@ Mir1.obs['group']='M_ir'
 Mir1.obs['age_num']='10.5m'
 Mir1.obs['age']='M'
 
-Mir2 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/M-ir-2', var_names='gene_ids', make_unique=False)
+Mir2 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/M-ir-2', var_names='gene_ids', make_unique=False)
 barcodes = ['M_ir_2_' + bc[:-2] for bc in Mir2.obs.index.tolist()]
 Mir2.obs.index = barcodes
 Mir2.obs["estrous_cycle"]='Irregular'
@@ -81,7 +81,7 @@ Mir2.obs['group']='M_ir'
 Mir2.obs['age_num']='10.5m'
 Mir2.obs['age']='M'
 
-Mir3 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/M-ir-3', var_names='gene_ids', make_unique=False)
+Mir3 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/M-ir-3', var_names='gene_ids', make_unique=False)
 barcodes = ['M_ir_3_' + bc[:-2] for bc in Mir3.obs.index.tolist()]
 Mir3.obs.index = barcodes
 Mir3.obs["estrous_cycle"]='Irregular'
@@ -89,7 +89,7 @@ Mir3.obs['group']='M_ir'
 Mir3.obs['age_num']='10.5m'
 Mir3.obs['age']='M'
 
-Mir4 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/M-ir-4', var_names='gene_ids', make_unique=False)
+Mir4 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/M-ir-4', var_names='gene_ids', make_unique=False)
 barcodes = ['M_ir_4_' + bc[:-2] for bc in Mir4.obs.index.tolist()]
 Mir4.obs.index = barcodes
 Mir4.obs["estrous_cycle"]='Irregular'
@@ -97,7 +97,7 @@ Mir4.obs['group']='M_ir'
 Mir4.obs['age_num']='10.5m'
 Mir4.obs['age']='M'
 
-Oa1 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/O-a-1', var_names='gene_ids', make_unique=False)
+Oa1 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/O-a-1', var_names='gene_ids', make_unique=False)
 barcodes = ['O_a_1_' + bc[:-2] for bc in Oa1.obs.index.tolist()]
 Oa1.obs.index = barcodes
 Oa1.obs["estrous_cycle"]='Acyclic'
@@ -105,7 +105,7 @@ Oa1.obs['group']='O_a'
 Oa1.obs['age_num']='15.5m'
 Oa1.obs['age']='O'
 
-Oa2 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/O-a-2', var_names='gene_ids', make_unique=False)
+Oa2 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/O-a-2', var_names='gene_ids', make_unique=False)
 barcodes = ['O_a_2_' + bc[:-2] for bc in Oa2.obs.index.tolist()]
 Oa2.obs.index = barcodes
 Oa2.obs["estrous_cycle"]='Acyclic'
@@ -113,7 +113,7 @@ Oa2.obs['group']='O_a'
 Oa2.obs['age_num']='15.5m'
 Oa2.obs['age']='O'
 
-Oa3 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/O-a-3', var_names='gene_ids', make_unique=False)
+Oa3 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/O-a-3', var_names='gene_ids', make_unique=False)
 barcodes = ['O_a_3_' + bc[:-2] for bc in Oa3.obs.index.tolist()]
 Oa3.obs.index = barcodes
 Oa3.obs["estrous_cycle"]='Acyclic'
@@ -121,7 +121,7 @@ Oa3.obs['group']='O_a'
 Oa3.obs['age_num']='15.5m'
 Oa3.obs['age']='O'
 
-Oa4 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/O-a-4', var_names='gene_ids', make_unique=False)
+Oa4 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/O-a-4', var_names='gene_ids', make_unique=False)
 barcodes = ['O_a_4_' + bc[:-2] for bc in Oa4.obs.index.tolist()]
 Oa4.obs.index = barcodes
 Oa4.obs["estrous_cycle"]='Acyclic'
@@ -129,7 +129,7 @@ Oa4.obs['group']='O_a'
 Oa4.obs['age_num']='15.5m'
 Oa4.obs['age']='O'
 
-Oa5 = sc.read_10x_mtx('C:/Users/Jiping Yang/Documents/10x/O-a-5', var_names='gene_ids', make_unique=False)
+Oa5 = sc.read_10x_mtx('C:/Users/Jiping/Documents/10x/O-a-5', var_names='gene_ids', make_unique=False)
 barcodes = ['O_a_5_' + bc[:-2] for bc in Oa5.obs.index.tolist()]
 Oa5.obs.index = barcodes
 Oa5.obs["estrous_cycle"]='Acyclic'
