@@ -168,5 +168,7 @@ ovary_filtered.obs['age'] = ovary_filtered.obs['age'].astype('category')
 ovary_filtered.obs['age_num'] = ovary_filtered.obs['age_num'].astype('category')
 ovary_filtered.obs['group'] = ovary_filtered.obs['group'].astype('category')
 ovary_filtered.obs['estrous_cycle'] = ovary_filtered.obs['estrous_cycle'].astype('category')
-
+ovary_filtered.obsm['X_umap']=np.vstack((ovary_filtered.obs['UMAP_1'].to_numpy(), ovary_filtered.obs['UMAP_2'].to_numpy())).T
+ovary_filtered.obs['UMAP_1']=None
+ovary_filtered.obs['UMAP_2']=None
 
