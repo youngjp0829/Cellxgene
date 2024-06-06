@@ -162,8 +162,11 @@ ovary_filtered.obs["nFeature_RNA"]=metadata["nFeature_RNA"]
 ovary_filtered.obs["nCount_RNA"]=metadata["nCount_RNA"]
 ovary_filtered.obs["percent.mt"]=metadata["percent.mt"]
 ovary_filtered.obs["cell_type"]=metadata["cell_type"]
+ovary_filtered.obs['orig.ident'] = ovary_filtered.obs['orig.ident'].astype('category')
+ovary_filtered.obs['cell_type'] = ovary_filtered.obs['cell_type'].astype('category')
+ovary_filtered.obs['age'] = ovary_filtered.obs['age'].astype('category')
+ovary_filtered.obs['age_num'] = ovary_filtered.obs['age_num'].astype('category')
+ovary_filtered.obs['group'] = ovary_filtered.obs['group'].astype('category')
+ovary_filtered.obs['estrous_cycle'] = ovary_filtered.obs['estrous_cycle'].astype('category')
 
-
-barcode[0] = barcode[0].str.replace(r'[()]', '', regex=True)
-ovary_filtered.obs["age"] = metadata[]
 
