@@ -169,6 +169,34 @@ ovary_filtered.obs['age_num'] = ovary_filtered.obs['age_num'].astype('category')
 ovary_filtered.obs['group'] = ovary_filtered.obs['group'].astype('category')
 ovary_filtered.obs['estrous_cycle'] = ovary_filtered.obs['estrous_cycle'].astype('category')
 ovary_filtered.obsm['X_umap']=np.vstack((ovary_filtered.obs['UMAP_1'].to_numpy(), ovary_filtered.obs['UMAP_2'].to_numpy())).T
-ovary_filtered.obs['UMAP_1']=None
-ovary_filtered.obs['UMAP_2']=None
+ovary_filtered.obs = ovary_filtered.obs.drop(columns=['batch'])
+ovary_filtered.obs = ovary_filtered.obs.drop(columns=['UMAP_1'])
+ovary_filtered.obs = ovary_filtered.obs.drop(columns=['UMAP_2'])
+ovary_filtered.obs['organism_ontology_term_id'] = 'NCBITaxon:10090'
+ovary_filtered.obs['organism_ontology_term_id'] = ovary_filtered.obs['organism_ontology_term_id'].astype('category')
+ovary_filtered.obs['tissue_type'] = 'tissue'
+ovary_filtered.obs['tissue_type'] = ovary_filtered.obs['tissue_type'].astype('category')
+ovary_filtered.obs['tissue_ontology_term_id'] = 'UBERON:0000992'
+ovary_filtered.obs['tissue_ontology_term_id'] = ovary_filtered.obs['tissue_ontology_term_id'].astype('category')
+ovary_filtered.obs['assay_ontology_term_id'] = 'EFO:0008913'
+ovary_filtered.obs['assay_ontology_term_id'] = ovary_filtered.obs['assay_ontology_term_id'].astype('category')
+ovary_filtered.obs['disease_ontology_term_id'] = 'PATO:0000461'
+ovary_filtered.obs['disease_ontology_term_id'] = ovary_filtered.obs['disease_ontology_term_id'].astype('category')
+ovary_filtered.obs['self_reported_ethnicity_ontology_term_id'] = 'na'
+ovary_filtered.obs['self_reported_ethnicity_ontology_term_id'] = ovary_filtered.obs['self_reported_ethnicity_ontology_term_id'].astype('category')
+ovary_filtered.obs['development_stage_ontology_term_id'] = ovary_filtered.obs['age_num']
+ovary_filtered.obs['development_stage_ontology_term_id']=ovary_filtered.obs['development_stage_ontology_term_id'].replace({'4.5m': 'MmusDv:0000064','10.5m': 'MmusDv:0000081','15.5m': 'MmusDv:0000086'})
+ovary_filtered.obs['development_stage_ontology_term_id'] = ovary_filtered.obs['development_stage_ontology_term_id'].astype('category')
+ovary_filtered.obs['sex_ontology_term_id'] = 'PATO:0000383'
+ovary_filtered.obs['sex_ontology_term_id'] = ovary_filtered.obs['sex_ontology_term_id'].astype('category')
+ovary_filtered.obs['suspension_type'] = 'cell'
+ovary_filtered.obs['suspension_type'] = ovary_filtered.obs['suspension_type'].astype('category')
+ovary_filtered.obs['cell_type'] =ovary_filtered.obs['cell_type'] .replace({'Macrophage': 'M/B cells'})
+ovary_filtered.obs['cell_type_ontology_term_id'] = ovary_filtered.obs['cell_type']
+ovary_filtered.obs['cell_type_ontology_term_id'] = ovary_filtered.obs['cell_type_ontology_term_id'].replace({'Endothelial cells': 'CL:0000115', 'Theca cells': 'CL:0000503','Epithelial cells': 'CL:0000066', 'Oocytes': 'CL:0000023','Stromal cells': 'CL:0000499', 'Granulosa cells (Amh-high)': 'CL:0000501','Granulosa cells (Inhbb-high)': 'CL:0000501','Granulosa cells (Nppc-high)': 'CL:0000501','Luteal cells': 'CL:0000175','NK/T cells': 'CL:0000814','M/B cells': 'CL:0000842'})
+ovary_filtered.obs['donor_id'] = ovary_filtered.obs['orig.ident']
+ovary_filtered.obs['development_stage_ontology_term_id'] = ovary_filtered.obs['age_num']
+ovary_filtered.obs['development_stage_ontology_term_id']=ovary_filtered.obs['development_stage_ontology_term_id'].replace({'4.5m': 'MmusDv:0000064','10.5m': 'MmusDv:0000081','15.5m': 'MmusDv:0000086'})
+ovary_filtered.uns['title']="Transcriptomic signatures of mouse ovarian aging and estropausal transition at single-cell resolution"
+ovary_filtered.obs.to_csv("C:/Users/Jiping/Documents/10x/ovary_filtered.obs_metadata.csv")
 
