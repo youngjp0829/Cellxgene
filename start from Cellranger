@@ -150,8 +150,20 @@ ovary_filtered = ovary[np.isin(ovary.obs.index,CellID["CellID"])]
 obs_index_df = pd.DataFrame(ovary_filtered.obs.index)
 obs_index_df.to_csv('C:/Users/Jiping/Documents/10x/ovary_filtered_obs_index.csv', index=False, header=False)
 ####manually check with metadata barcode column
-metadata=pd.read_csv("C:/Users/Jiping/Documents/10x/metadata.csv",index_col=None)
-ovary_filtered.obs=metadata
 
-ovary_filtered.obs.index=ovary_filtered.obs["barcode"]
+barcode=pd.read_csv("C:/Users/Jiping/Documents/10x/index.csv",index_col=None, sep=',',header=None)
+barcodes = [bc[0:len(bc)] for bc in barcode[0]]
+ovary_filtered.obs.index=barcodes
+metadata = pd.read_csv("C:/Users/Jiping/Documents/10x/metadata.csv", index_col='barcode')
+ovary_filtered.obs["UMAP_1"]=metadata["UMAP_1"]
+ovary_filtered.obs["UMAP_2"]=metadata["UMAP_2"]
+ovary_filtered.obs["orig.ident"]=metadata["orig.ident"]
+ovary_filtered.obs["nFeature_RNA"]=metadata["nFeature_RNA"]
+ovary_filtered.obs["nCount_RNA"]=metadata["nCount_RNA"]
+ovary_filtered.obs["percent.mt"]=metadata["percent.mt"]
+ovary_filtered.obs["cell_type"]=metadata["cell_type"]
+
+
+barcode[0] = barcode[0].str.replace(r'[()]', '', regex=True)
 ovary_filtered.obs["age"] = metadata[]
+
