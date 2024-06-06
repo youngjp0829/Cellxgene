@@ -199,4 +199,12 @@ ovary_filtered.obs['development_stage_ontology_term_id'] = ovary_filtered.obs['a
 ovary_filtered.obs['development_stage_ontology_term_id']=ovary_filtered.obs['development_stage_ontology_term_id'].replace({'4.5m': 'MmusDv:0000064','10.5m': 'MmusDv:0000081','15.5m': 'MmusDv:0000086'})
 ovary_filtered.uns['title']="Transcriptomic signatures of mouse ovarian aging and estropausal transition at single-cell resolution"
 ovary_filtered.obs.to_csv("C:/Users/Jiping/Documents/10x/ovary_filtered.obs_metadata.csv")
+ovary_filtered.write_h5ad('C:/Users/Jiping/Documents/10x/CZI_mouse_ovary_aging_and_estropausal_transition.h5ad')
+ovary_filtered.raw = ovary_filtered.copy()
+sc.pp.normalize_total(ovary_filtered)
+sc.pp.log1p(ovary_filtered)
+print(ovary_filtered.raw.X[:5, :])
+print(ovary_filtered.X[:5, :])
 
+sc.pl.umap(ovary_filtered,color="cell_type",size=5)
+ovary_filtered.write_h5ad('C:/Users/Jiping/Documents/10x/CZI_mouse_ovary_aging_and_estropausal_transition_plusRaw.h5ad')
